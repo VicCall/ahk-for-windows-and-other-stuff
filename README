@@ -1,0 +1,41 @@
+Hi
+My name is Vic and i only know how to code Auto Hotkey just alittle bit. So proceed with caution.
+
+This repository contain Auto Hotkey scripts that i took from the macro man himself https://github.com/TaranVH, and i adjusted some stuff that will suits my needs for video editing in adobe premiere pro.
+i think these scripts will help you easier to start using AHK on your video editing because Tarans AHK script files are clustered with some advance stuff that i found it hard to understand.
+
+but still you have to watch Tarans AHK tutorial (https://www.youtube.com/watch?v=T3vG8U5RoFw&t=1786s) to set up the AHK program on your computer
+
+
+
+Files listed below containing all AHK Functions that called in Parent.ahk file
+{
+AHK_PP.ahk
+Both_Accelerated_Scrolling_1.3_AND_Cursor_click_visualizer-100UI.ahk
+PREMIERE_MOD_Right_click_timeline_to_move_playhead.ahk
+YES_DELETE_EXISTING_KEYFRAMES.ahk
+AudioMonoMaker.ahk
+Application_switcher.ahk
+presets_pp.ahk
+}
+
+so all you have to do is to change the hotkeys  from each function to your liking in Parent.ahk.
+
+{HOTKEY}::{NAME OF THE FUNCTION}()
+F1::switchToExplorer()
+F2::switchToEdge()
+F3::switchToPremiere()
+F4::switchToGom()
+
+#IfWinActive ahk_exe Adobe Premiere Pro.exe  (Functions below this line will only can be activate if Premiere Pro is opened/active)
+F5::preset_1("WS-basic")
+F6::preset("LC-1")
+F7::preset("LC-2")
+F8::preset("LC-3")
+=::audioMonoMaker("right")
+End::RDCAP()    ;Ripple delete clip at playhead
+Ins::CAC()      ;Cut at cutsor
+PgUp::SCAC()    ;delete single clip at playhead
+
+The only script that i rewrote is the preset_1("WS-basic"), is the instant add custom preset function that for warp stabillizer fx
+where i add command to click the anlyze button after the regular preset function, and i bet its sloppy.
