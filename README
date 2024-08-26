@@ -10,6 +10,9 @@ but still you have to watch Tarans AHK tutorial (https://www.youtube.com/watch?v
 PP shorcut location
 C:\Users\garel\Documents\Adobe\Premiere Pro\23.0\Profile-garel\Win
 
+the requirements that i can think of
+- Put effect control panel at top left
+
 Files listed below containing all AHK Functions that called in Parent.ahk file
 {
 AHK_PP.ahk
@@ -21,23 +24,65 @@ Application_switcher.ahk
 presets_pp.ahk
 }
 
-so all you have to do is to change the hotkeys  from each function to your liking in Parent.ahk.
+so all you have to do is to change the hotkeys  from each function to your liking in Parent.ahk FILE.
 
 {HOTKEY}::{NAME OF THE FUNCTION}()
+
+; SWITCH TO APPLICATION
 F1::switchToExplorer()
 F2::switchToEdge()
 F3::switchToPremiere()
 F4::switchToGom()
++F1::switchToNotion()
++F2::switchToOneNote()
++F3::switchToPureRef()
++F4::switchToSpotify()
++F5::switchToVSCode()
 
-#IfWinActive ahk_exe Adobe Premiere Pro.exe  (Functions below this line will only can be activate if Premiere Pro is opened/active)
-F5::preset_1("WS-basic")
-F6::preset("LC-1")
-F7::preset("LC-2")
-F8::preset("LC-3")
++F9::openWrk(); its open folder location
++F10::openDownload()
+
+!1::switchToPS()
+!2::switchToAE()
+!3::switchToLR()
+!4::switchToAI()
+
+; Premiere pro scripts
+#IfWinActive ahk_exe Adobe Premiere Pro.exe
+{
+F9::preset_1("WSDetail")
+F10::preset("LC-1")
+F11::preset("LC-2")
+F12::preset("LC-3")
 =::audioMonoMaker("right")
-End::RDCAP()    ;Ripple delete clip at playhead
-Ins::CAC()      ;Cut at cutsor
-PgUp::SCAC()    ;delete single clip at playhead
+-::addGain(amount := 7)
+End::RDCAP()  ;Ripple delete clip at playhead
+XButton2::CAC()      ; Cut at cutsor
+PgUp::SCAC()    ; delete single clip at playhead
+; normal version
+;F6::RDCAP()
+;F5::CAC() 
+;F7::SCAC()
+F7::
+global VFXkey = "F7"
+instantVFX("scale")
+return  
+
+F8::
+global VFXkey = "F8" ;the VFXkey variable has to be defined NOW. IDK why.
+instantVFX("rotation")
+return
+
+F5::
+global VFXkey = "F5"
+instantVFX("position")
+return
+
+F6::
+global VFXkey = "F6"
+instantVFX("position_vertical")
+return
+}
 
 The only script that i rewrote is the preset_1("WS-basic"), is the instant add custom preset function that for warp stabillizer fx
 where i add command to click the anlyze button after the regular preset function, and i bet its sloppy.
