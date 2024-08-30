@@ -84,5 +84,5 @@ instantVFX("position_vertical")
 return
 }
 
-The only script that i rewrote is the preset_1("WS-basic"), is the instant add custom preset function that for warp stabillizer fx
-where i add command to click the anlyze button after the regular preset function, and i bet its sloppy.
+The only script that i rewrote is the preset_1("WS-basic"), its the instant add custom preset function that for warp stabillizer fx
+where i add command to click the anlyze button after the regular preset function, its sloppy, i know.
